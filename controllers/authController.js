@@ -2,23 +2,18 @@ const Member = require("../models/Member");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-// --- REGISTER METHOD ---
+// --- REGISTER ---
 exports.register = async (req, res) => {
   try {
-    // 1. Get user data from the request body
     const { email, password, name, YOB, gender } = req.body;
 
-    // 2. Check if the email is already registered
     const existingMember = await Member.findOne({ email });
     if (existingMember) {
       return res.status(400).json({ message: "Email already exists!" });
     }
 
-    // 3. Hash the password using bcrypt (Requirement from assignment)
     const hashPassword = await bcrypt.hash(password, 8);
 
-    // 4. Create the new member
-    // Notice we do NOT pass isAdmin here, so it defaults to false (Requirement)
     const newMember = await Member.create({
       email,
       password: hashPassword,
@@ -35,26 +30,25 @@ exports.register = async (req, res) => {
   }
 };
 
-// --- LOGIN METHOD ---
+// --- LOGIN ---
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const jwtSecret = process.env.JWT_SECRET;
 
-    // 1. Find the member by email
+    // Find member by email
     const member = await Member.findOne({ email });
     if (!member) {
       return res.status(400).json({ message: "Email not found!" });
     }
 
-    // 2. Compare the entered password with the hashed database password
+    // Compare entered password with hashed password
     const isMatch = await bcrypt.compare(password, member.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials!" });
     }
 
-    // 3. Generate a JWT Token
-    // We store the memberId and isAdmin status inside the token for easy access later
+    // Generate Token
     const accessToken = jwt.sign(
       {
         memberId: member._id,
@@ -64,7 +58,7 @@ exports.login = async (req, res) => {
       { expiresIn: "1h" },
     );
 
-    // 4. Send back the token and basic user info
+    // Send back token and basic user info
     res.json({
       success: true,
       accessToken,

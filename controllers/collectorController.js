@@ -2,7 +2,8 @@ const Member = require("../models/Member");
 const Brand = require("../models/Brand");
 const Perfume = require("../models/Perfume");
 
-// --- GET ALL MEMBERS (Admin Only) ---
+// ====== ADMIN ======
+// --- GET ALL MEMBERS ---
 exports.getAllMembers = async (req, res) => {
   try {
     // Fetch all members but exclude their passwords for security
@@ -13,7 +14,7 @@ exports.getAllMembers = async (req, res) => {
   }
 };
 
-// --- GET DASHBOARD STATS (Admin Only) ---
+// --- GET DASHBOARD STATS  ---
 exports.getDashboardStats = async (req, res) => {
   try {
     // Get counts in parallel for better performance

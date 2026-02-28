@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const Member = require("../models/Member");
 
-// 1. Check if the user is logged in (Has valid token)
+// Check if user is logged in (Has valid token)
 const verifyToken = async (req, res, next) => {
   try {
-    // Get token from headers: "Authorization: Bearer <token>"
+    // Get token from headers
     const token = req.header("Authorization")?.replace("Bearer ", "");
     if (!token) {
       return res
@@ -21,7 +21,7 @@ const verifyToken = async (req, res, next) => {
       return res.status(401).json({ message: "Account not found" });
     }
 
-    // Attach the user to the request object so the next functions can use it
+    // Attach user to the request object
     req.user = member;
     next(); // Move to the next step
   } catch (error) {
@@ -29,11 +29,10 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-// 2. Check if the user is an Admin
+// Check if user is Admin
 const verifyAdmin = (req, res, next) => {
-  // We check req.user which was attached by the verifyToken function above
   if (req.user && req.user.isAdmin === true) {
-    next(); // They are admin, let them pass
+    next(); // admin --> pass
   } else {
     return res
       .status(403)

@@ -31,7 +31,7 @@ const seedData = async () => {
       {
         perfumeName: "Baccarat Rouge 540",
         brand: getBrandId("Maison Francis Kurkdjian"),
-        uri: "https://images.unsplash.com/photo-1616949312104-e343b6dc0cc3?auto=format&fit=crop&q=80&w=600",
+        uri: "https://cdn.hstatic.net/products/200000977139/_c_hoa_unisex_maison_francis_kurkdjian_baccarat_rouge_540_edp_70ml__2__640f7603d91d48c1ab8bf29a5c857c18_master.png",
         price: 425,
         volume: 70,
         concentration: "Extrait",
@@ -43,7 +43,7 @@ const seedData = async () => {
       {
         perfumeName: "Grand Soir",
         brand: getBrandId("Maison Francis Kurkdjian"),
-        uri: "https://images.unsplash.com/photo-1599733594230-6b823276abcc?auto=format&fit=crop&q=80&w=600",
+        uri: "https://nuochoamc.com/upload/images/san-pham/1671/maison-francis-kurkdjian-grand-soir-4.webp",
         price: 240,
         volume: 70,
         concentration: "EDP",
@@ -56,7 +56,7 @@ const seedData = async () => {
       {
         perfumeName: "Oud Satin Mood",
         brand: getBrandId("Maison Francis Kurkdjian"),
-        uri: "https://images.unsplash.com/photo-1615486171448-43398dbac22b?auto=format&fit=crop&q=80&w=600",
+        uri: "https://vitaperfume.com/image/catalog/san_pham/niche/satinedp.jpg",
         price: 475,
         volume: 70,
         concentration: "Extrait",
@@ -69,7 +69,7 @@ const seedData = async () => {
       {
         perfumeName: "Aqua Universalis",
         brand: getBrandId("Maison Francis Kurkdjian"),
-        uri: "https://images.unsplash.com/photo-1592914610354-fd354d00cea4?auto=format&fit=crop&q=80&w=600",
+        uri: "https://fandi-perfume.com/cdn/shop/files/maison-francis-kurkdjian-aqua-universalis-forte-unisex-eau-de-parfum-1217973165.png?v=1769544046&width=1024",
         price: 215,
         volume: 70,
         concentration: "EDT",
@@ -81,7 +81,7 @@ const seedData = async () => {
       {
         perfumeName: "L'Homme À la Rose",
         brand: getBrandId("Maison Francis Kurkdjian"),
-        uri: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&q=80&w=600",
+        uri: "https://apaniche.vn/wp-content/uploads/2024/12/mfk-l-eau-a-la-rose-chinh-hang-2025.png",
         price: 285,
         volume: 70,
         concentration: "EDP",
@@ -95,7 +95,7 @@ const seedData = async () => {
       {
         perfumeName: "Santal 33",
         brand: getBrandId("Le Labo"),
-        uri: "https://images.unsplash.com/photo-1587440871874-8845bb11cb2f?auto=format&fit=crop&q=80&w=600",
+        uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLnZWBVFtF0lnsaTCMBDytWYtBj773ZdD5Q&s",
         price: 320,
         volume: 100,
         concentration: "EDP",
@@ -107,7 +107,7 @@ const seedData = async () => {
       {
         perfumeName: "Another 13",
         brand: getBrandId("Le Labo"),
-        uri: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=600",
+        uri: "https://apaniche.vn/wp-content/uploads/2023/05/Le-Labo-Another-13-EDP-tai-ha-noi.jpg",
         price: 320,
         volume: 100,
         concentration: "EDP",
@@ -119,7 +119,7 @@ const seedData = async () => {
       {
         perfumeName: "Rose 31",
         brand: getBrandId("Le Labo"),
-        uri: "https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&q=80&w=600",
+        uri: "https://kyo.vn/wp-content/uploads/2022/09/nuoc-hoa-unisex-le-labo-rose-31-5.jpg",
         price: 320,
         volume: 100,
         concentration: "EDP",
@@ -131,7 +131,7 @@ const seedData = async () => {
       {
         perfumeName: "Bergamote 22",
         brand: getBrandId("Le Labo"),
-        uri: "",
+        uri: "https://nuochoamc.com/upload/images/bai-viet/1101/review-nuoc-hoa-le-labo-bergamote-222.webp",
         price: 320,
         volume: 100,
         concentration: "EDP",
@@ -144,7 +144,7 @@ const seedData = async () => {
       {
         perfumeName: "Thé Noir 29",
         brand: getBrandId("Le Labo"),
-        uri: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=600",
+        uri: "https://product.hstatic.net/200000104389/product/35f35318-bb60-49be-938f-1d2a93fab170_89ecfc5f7e5f44f7a677e57ce7bf7e44_1024x1024.jpg",
         price: 400,
         volume: 100,
         concentration: "Extrait",
@@ -158,7 +158,7 @@ const seedData = async () => {
       {
         perfumeName: "Oud Wood",
         brand: getBrandId("Tom Ford"),
-        uri: "",
+        uri: "https://nuochoamc.com/upload/images/san-pham/1727/tom-ford-oud-wood-2024-parfum2.webp",
         price: 395,
         volume: 50,
         concentration: "EDP",
@@ -171,7 +171,7 @@ const seedData = async () => {
       {
         perfumeName: "Lost Cherry",
         brand: getBrandId("Tom Ford"),
-        uri: "",
+        uri: "https://api.namefragrance.vn/v1/crop?file=10308/2024/July/132497-321401719973687-1719973687.jpg&width=350&height=350",
         price: 395,
         volume: 50,
         concentration: "EDP",
@@ -184,7 +184,7 @@ const seedData = async () => {
       {
         perfumeName: "Tobacco Vanille",
         brand: getBrandId("Tom Ford"),
-        uri: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=600",
+        uri: "https://theperfume.vn/wp-content/uploads/2021/01/thiet-ke-tobac-co-vani-lle-100ml.png",
         price: 395,
         volume: 50,
         concentration: "EDP",
@@ -196,7 +196,7 @@ const seedData = async () => {
       {
         perfumeName: "Tuscan Leather",
         brand: getBrandId("Tom Ford"),
-        uri: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=600",
+        uri: "https://nuochoamc.com/upload/images/san-pham/975/tuscan-leather-1.webp",
         price: 520,
         volume: 50,
         concentration: "Extrait",
@@ -208,7 +208,7 @@ const seedData = async () => {
       {
         perfumeName: "Black Orchid",
         brand: getBrandId("Tom Ford"),
-        uri: "",
+        uri: "https://nuochoamc.com/upload/images/san-pham/2211/tom-ford-black-orchid-2023-edt-100ml1.webp",
         price: 215,
         volume: 50,
         concentration: "EDP",
@@ -222,7 +222,7 @@ const seedData = async () => {
       {
         perfumeName: "Bleu de Chanel",
         brand: getBrandId("Chanel"),
-        uri: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600",
+        uri: "https://kyo.vn/wp-content/uploads/2022/08/nuoc-hoa-nam-chanel-bleu-de-chanel-parfum-2.png",
         price: 180,
         volume: 100,
         concentration: "Extrait",
@@ -234,7 +234,7 @@ const seedData = async () => {
       {
         perfumeName: "No. 5",
         brand: getBrandId("Chanel"),
-        uri: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=600",
+        uri: "https://orchard.vn/wp-content/uploads/2014/06/chanel-no5-edp_5.jpg",
         price: 160,
         volume: 100,
         concentration: "EDP",
@@ -246,7 +246,7 @@ const seedData = async () => {
       {
         perfumeName: "Coco Mademoiselle",
         brand: getBrandId("Chanel"),
-        uri: "",
+        uri: "https://apaniche.vn/wp-content/uploads/2023/05/Chanel-Coco-Mademoiselle-EDP-chinh-hang.jpg",
         price: 160,
         volume: 100,
         concentration: "EDP",
@@ -258,7 +258,7 @@ const seedData = async () => {
       {
         perfumeName: "Sycomore",
         brand: getBrandId("Chanel"),
-        uri: "",
+        uri: "https://parfum.ae/cdn/shop/products/SYCOMORE_20100ml-500x500_82857de3-6906-436b-8dd7-6e00f00b5041.jpg?v=1700807041&width=2048",
         price: 350,
         volume: 75,
         concentration: "EDP",
@@ -270,7 +270,7 @@ const seedData = async () => {
       {
         perfumeName: "Allure Homme Sport",
         brand: getBrandId("Chanel"),
-        uri: "",
+        uri: "https://nuochoamc.com/upload/images/san-pham/284/chanel-allure-homme-sport-edt-4.webp",
         price: 130,
         volume: 100,
         concentration: "EDT",
@@ -284,7 +284,7 @@ const seedData = async () => {
       {
         perfumeName: "Gypsy Water",
         brand: getBrandId("Byredo"),
-        uri: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=600",
+        uri: "https://bbbeauty.com.hk/cdn/shop/files/byredo-gypsy-water-a-fragrance-for-every-season-994700_800x.png?v=1727840350",
         price: 225,
         volume: 50,
         concentration: "EDP",
@@ -296,7 +296,7 @@ const seedData = async () => {
       {
         perfumeName: "Mojave Ghost",
         brand: getBrandId("Byredo"),
-        uri: "",
+        uri: "https://www.woodberg.de/cdn/shop/files/Byredo-mojave-ghost-absolue-100ml-02.jpg?v=1727714332&width=1000",
         price: 225,
         volume: 50,
         concentration: "EDP",
@@ -308,7 +308,7 @@ const seedData = async () => {
       {
         perfumeName: "Bal d'Afrique",
         brand: getBrandId("Byredo"),
-        uri: "",
+        uri: "https://piger.vn/wp-content/uploads/2023/08/nuoc-hoa-unisex-byredo-bal-dafrique-piger-vn-02.jpg",
         price: 225,
         volume: 50,
         concentration: "EDP",
@@ -333,7 +333,7 @@ const seedData = async () => {
       {
         perfumeName: "Sellier",
         brand: getBrandId("Byredo"),
-        uri: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=600",
+        uri: "https://parfum.qa/cdn/shop/products/our-creation-of-byredos-sellier-833551.jpg?v=1702915109&width=2048",
         price: 345,
         volume: 50,
         concentration: "Extrait",
@@ -347,7 +347,7 @@ const seedData = async () => {
       {
         perfumeName: "Aventus",
         brand: getBrandId("Creed"),
-        uri: "",
+        uri: "https://lanperfume.com/wp-content/uploads/2024/07/thong-tin-nuoc-hoa-creed-aventus-for-men-edp-1.jpg",
         price: 495,
         volume: 100,
         concentration: "EDP",
@@ -360,7 +360,7 @@ const seedData = async () => {
       {
         perfumeName: "Silver Mountain Water",
         brand: getBrandId("Creed"),
-        uri: "",
+        uri: "https://laluz.vn/wp-content/uploads/2023/12/nuoc-hoa-unisex-Creed-Silver-Mountain-Water.jpg",
         price: 470,
         volume: 100,
         concentration: "EDP",
@@ -373,7 +373,7 @@ const seedData = async () => {
       {
         perfumeName: "Green Irish Tweed",
         brand: getBrandId("Creed"),
-        uri: "",
+        uri: "https://kyo.vn/wp-content/uploads/2022/08/nuoc-hoa-nam-creed-green-irish-tweed-edp-4.png",
         price: 470,
         volume: 100,
         concentration: "EDP",
@@ -386,7 +386,7 @@ const seedData = async () => {
       {
         perfumeName: "Aventus for Her",
         brand: getBrandId("Creed"),
-        uri: "",
+        uri: "https://alison.com.vn/file/upload/1001_1726042646_448845.png",
         price: 495,
         volume: 75,
         concentration: "Extrait",

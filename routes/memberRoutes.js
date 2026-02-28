@@ -3,10 +3,11 @@ const router = express.Router();
 const memberController = require("../controllers/memberController");
 const { verifyToken } = require("../middleware/authMiddleware");
 
-// Route: PUT /api/members/profile (Requires Login)
+// === LOGIN REQUIRED ===
+// PUT /api/members/profile
 router.put("/profile", verifyToken, memberController.updateProfile);
 
-// Route: PUT /api/members/password (Requires Login)
+// PUT /api/members/password
 router.put("/password", verifyToken, memberController.changePassword);
 
 router.get("/profile", verifyToken, memberController.getProfile);

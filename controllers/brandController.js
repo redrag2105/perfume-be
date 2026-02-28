@@ -1,4 +1,4 @@
-const Brand = require("../models/Brand"); // Using your exact file name!
+const Brand = require("../models/Brand");
 
 // --- GET ALL BRANDS ---
 exports.getBrands = async (req, res) => {

@@ -12,19 +12,14 @@ const collectorRoutes = require("./routes/collectorRoutes");
 const app = express();
 
 // Middleware
-app.use(cors()); // Allow frontend to connect
-app.use(express.json()); // Allow server to accept JSON data
+app.use(cors());
+app.use(express.json());
 
 // Database Connection
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ Connected to MongoDB successfully!"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
-
-// A simple test route to see if server works
-app.get("/", (req, res) => {
-  res.send("Perfume Store API is running...");
-});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/members", memberRoutes);

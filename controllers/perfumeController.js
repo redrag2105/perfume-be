@@ -2,47 +2,45 @@ const Perfume = require("../models/Perfume");
 const Brand = require("../models/Brand");
 const Member = require("../models/Member");
 
-// --- GET ALL PERFUMES (Search & Filter with Pagination) ---
+// --- GET ALL PERFUMES ---
 exports.getPerfumes = async (req, res) => {
   try {
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    const { search, brandName, page = 1, limit = 12 } = req.query; // Get search queries from URL
+    const { search, brandName, page = 1, limit = 12 } = req.query;
     let query = {};
 
-    // 1. Search by Perfume Name (case-insensitive)
+    // Search by Perfume Name
     if (search) {
       query.perfumeName = { $regex: search, $options: "i" };
     }
 
-    // 2. Filter by Brand Name
+    // Filter by Brand Name
     if (brandName) {
-      // Find the brands that match the name
       const brands = await Brand.find({
         brandName: { $regex: brandName, $options: "i" },
       });
       const brandIds = brands.map((b) => b._id); // Extract their ObjectIds
-      query.brand = { $in: brandIds }; // Add to our perfume search query
+      query.brand = { $in: brandIds }; // Add to perfume search query
     }
 
-    // 3. Calculate pagination
+    // Calculate pagination
     const pageNum = parseInt(page, 10) || 1;
     const limitNum = parseInt(limit, 10) || 12;
     const skip = (pageNum - 1) * limitNum;
 
-    // 4. Get total count for pagination info
+    // Get total count for pagination info
     const totalCount = await Perfume.countDocuments(query);
     const totalPages = Math.ceil(totalCount / limitNum);
 
-    // 5. Fetch perfumes from DB with pagination and populate the brand
+    // Fetch perfumes from DB with pagination and populate the brand
     const perfumes = await Perfume.find(query)
-      .populate("brand", "brandName") // Mongoose Population requirement!
-      .select("perfumeName uri targetAudience brand concentration price") // Include price
+      .populate("brand", "brandName")
+      .select("perfumeName uri targetAudience brand concentration price")
       .skip(skip)
       .limit(limitNum)
-      .sort({ perfumeName: 1 }); // Alphabetical order
+      .sort({ perfumeName: 1 });
 
-    // 6. Format the output (removed duplicate 'image' field, using only 'uri')
     const formattedPerfumes = perfumes.map((p) => ({
       _id: p._id,
       perfumeName: p.perfumeName,
@@ -54,7 +52,6 @@ exports.getPerfumes = async (req, res) => {
       price: p.price,
     }));
 
-    // 7. Return with pagination metadata
     res.json({
       perfumes: formattedPerfumes,
       pagination: {
@@ -74,7 +71,6 @@ exports.getPerfumes = async (req, res) => {
 // --- GET PERFUME DETAILS ---
 exports.getPerfumeById = async (req, res) => {
   try {
-    // Fetch all details, populate brand, and populate the comment authors' names
     const perfume = await Perfume.findById(req.params.id)
       .populate("brand", "brandName")
       .populate("comments.author", "name");
@@ -89,10 +85,10 @@ exports.getPerfumeById = async (req, res) => {
   }
 };
 
-// --- CREATE PERFUME (Admin Only) ---
+// ====== ADMIN ======
+// --- CREATE PERFUME ---
 exports.createPerfume = async (req, res) => {
   try {
-    // We expect all these fields from the request body
     const newPerfume = await Perfume.create(req.body);
     res
       .status(201)
@@ -102,7 +98,7 @@ exports.createPerfume = async (req, res) => {
   }
 };
 
-// --- UPDATE PERFUME (Admin Only) ---
+// --- UPDATE PERFUME ---
 exports.updatePerfume = async (req, res) => {
   try {
     const updatedPerfume = await Perfume.findByIdAndUpdate(
@@ -118,7 +114,7 @@ exports.updatePerfume = async (req, res) => {
   }
 };
 
-// --- DELETE PERFUME (Admin Only) ---
+// --- DELETE PERFUME ---
 exports.deletePerfume = async (req, res) => {
   try {
     const deletedPerfume = await Perfume.findByIdAndDelete(req.params.id);
@@ -130,21 +126,20 @@ exports.deletePerfume = async (req, res) => {
   }
 };
 
-// --- ADD A COMMENT (Member Only, Once per perfume) ---
+// ====== MEMBER ======
+// --- ADD A COMMENT ---
 exports.addComment = async (req, res) => {
   try {
-    const perfumeId = req.params.id; // The perfume they are commenting on
-    const memberId = req.user._id; // The logged-in user
+    const perfumeId = req.params.id;
+    const memberId = req.user._id;
     const { rating, content } = req.body;
 
-    // 1. Find the perfume
     const perfume = await Perfume.findById(perfumeId);
     if (!perfume) {
       return res.status(404).json({ message: "Perfume not found!" });
     }
 
-    // 2. Check if this member has ALREADY commented on this specific perfume
-    // We convert ObjectIds to strings to safely compare them
+    // Check if this member has ALREADY commented on this specific perfume
     const hasCommented = perfume.comments.some(
       (comment) => comment.author.toString() === memberId.toString(),
     );
@@ -156,14 +151,12 @@ exports.addComment = async (req, res) => {
       });
     }
 
-    // 3. Add the comment
     perfume.comments.push({
       rating,
       content,
       author: memberId,
     });
 
-    // 4. Save the updated perfume
     await perfume.save();
 
     res

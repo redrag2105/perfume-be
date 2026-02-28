@@ -30,6 +30,7 @@ Tạo file `.env` ở thư mục gốc với nội dung:
 PORT=5000
 MONGODB_URI=<connection_string_của_bạn>
 JWT_SECRET=<đặt_gì_cũng_được>
+GOOGLE_CLIENT_ID=<client_id_của_bạn>
 ```
 
 **Ví dụ:**
@@ -38,6 +39,7 @@ JWT_SECRET=<đặt_gì_cũng_được>
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/perfume-db
 JWT_SECRET=my_super_secret_key
+GOOGLE_CLIENT_ID=946902322...fd0.apps.googleusercontent.com
 ```
 
 ### 3. Seed dữ liệu mẫu

@@ -104,7 +104,7 @@ exports.updatePerfume = async (req, res) => {
     const updatedPerfume = await Perfume.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true },
+      { returnDocument: "after", runValidators: true },
     );
     if (!updatedPerfume)
       return res.status(404).json({ message: "Perfume not found!" });

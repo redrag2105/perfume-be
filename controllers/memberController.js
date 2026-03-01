@@ -12,7 +12,7 @@ exports.updateProfile = async (req, res) => {
     const updatedMember = await Member.findByIdAndUpdate(
       memberId,
       { name, YOB, gender },
-      { new: true, runValidators: true },
+      { returnDocument: "after", runValidators: true },
     ).select("-password"); // Don't send back password
 
     res.json({

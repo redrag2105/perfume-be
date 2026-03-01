@@ -30,7 +30,7 @@ exports.updateBrand = async (req, res) => {
     const updatedBrand = await Brand.findByIdAndUpdate(
       req.params.id,
       { brandName },
-      { new: true },
+      { returnDocument: "after" },
     );
     if (!updatedBrand)
       return res.status(404).json({ message: "Brand not found!" });

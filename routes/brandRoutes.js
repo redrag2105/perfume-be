@@ -4,10 +4,10 @@ const brandController = require("../controllers/brandController");
 
 const { verifyToken, verifyAdmin } = require("../middleware/authMiddleware");
 
-// verifyToken FIRST, then verifyAdmin
 // GET /api/brands
-router.get("/", verifyToken, verifyAdmin, brandController.getBrands);
+router.get("/", brandController.getBrands);
 
+// verifyToken FIRST, then verifyAdmin
 // POST /api/brands
 router.post("/", verifyToken, verifyAdmin, brandController.createBrand);
 
